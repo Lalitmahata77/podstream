@@ -1,4 +1,4 @@
-import { USERS_URL } from "../constraint";
+import { USERS_URL } from "../constraints";
 import { apiSlice } from "./apiSlice";
 
 const userApiSlice = apiSlice.injectEndpoints({
@@ -25,7 +25,8 @@ const userApiSlice = apiSlice.injectEndpoints({
         }),
         users : builder.query({
             query : ()=>({
-                url : `${USERS_URL}/users`
+                url : `${USERS_URL}/users`,
+                method : "GET"
             })
         }),
         profile : builder.query({
@@ -39,8 +40,14 @@ const userApiSlice = apiSlice.injectEndpoints({
                 method : "PUT",
                 body : data
             })
-        })
+        }),
+        deleteUser : builder.mutation({
+            query : (userId) =>({
+                url : `${USERS_URL}/${userId}`,
+                method : "DELETE"
+            })
+        }),
     })
 })
 
-export const {useRegisterMutation,useLoginMutation,useLogoutMutation,useUsersQuery,useUpdateUserMutation,useProfileQuery} = userApiSlice
+export const {useRegisterMutation,useLoginMutation,useLogoutMutation,useUsersQuery,useUpdateUserMutation,useProfileQuery,useDeleteUserMutation} = userApiSlice

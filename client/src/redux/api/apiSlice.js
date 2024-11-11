@@ -1,13 +1,9 @@
 import {fetchBaseQuery,createApi} from "@reduxjs/toolkit/query/react"
-import {BASE_URL} from "../constraint.js"
-
-
+import { BASE_URL } from "../constraints"
 
 const baseQuery = fetchBaseQuery({baseUrl : BASE_URL})
 
-export const apiSlice = createApi(
-    {
-        baseQuery,
-        endpoints : ()=>({})
-    }
-)
+export const apiSlice = createApi({
+    baseQuery,
+    endpoints : ()=>({})
+})

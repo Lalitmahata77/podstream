@@ -1,14 +1,13 @@
-import { Outlet } from "react-router"
+import {Outlet} from "react-router-dom"
 import {ToastContainer} from "react-toastify"
-import Navigation from "./pages/auth/Navigation"
-function App() {
-
-
+import "react-toastify/dist/ReactToastify.css";
+import Navigation from "./pages/auth/Navigation";
+const App = () => {
   return (
   <>
   <ToastContainer/>
   <Navigation/>
-  <main>
+  <main className=" py-3">
     <Outlet/>
   </main>
   </>

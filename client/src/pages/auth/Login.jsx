@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useLocation, useNavigate } from "react-router"
 import { useLoginMutation } from "../../redux/api/userApiSlice"
 import { toast } from "react-toastify"
-import { setCredintial } from "../../redux/features/auth/authSlice"
+import { setCreadintial } from "../../redux/features/auth/authSlice"
 import { Link } from "react-router-dom"
 
 
@@ -26,7 +26,7 @@ const Login = () => {
         e.preventDefault()
         try {
             const res = await login({email,password}).unwrap()
-            dispatch(setCredintial({...res}))
+            dispatch(setCreadintial({...res}))
             navigate(redirect)
         } catch (err) {
             toast.error(err?.data?.message || err.error);

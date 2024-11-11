@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useLocation, useNavigate } from "react-router"
 import { useRegisterMutation } from "../../redux/api/userApiSlice"
-import {setCredintial} from "../../redux/features/auth/authSlice"
+import {setCreadintial} from "../../redux/features/auth/authSlice"
 import { toast } from "react-toastify"
 import { Link } from "react-router-dom"
 const Register = () => {
@@ -31,8 +31,8 @@ const Register = () => {
             toast.error("Password does not match")
         }else{
             try {
-                const res =  register({username,email,password}).unwrap()
-                dispatch(setCredintial({...res}))
+                const res = await register({username,email,password}).unwrap()
+                dispatch(setCreadintial({...res}))
                 navigate(redirect)
                 toast.success("User registered successfully")
             } catch (error) {
